@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-Cn9l5Jr+TDbtKafEPjyrnWob1yo7P+POkS0G6jFyyKkL3kRZLRcbDPSmy1pEGp7h0cOeN5i0ZPfaeMPeRZ4zGA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <title>Project Details</title>
+  <style>
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7fa;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container for heading + boxes */
+    .project-container {
+      background-color: #e9eCef;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px;
+      min-height: 100vh;
+      width: calc(100% - 40px);
+      box-sizing: border-box;
+    }
+
+    .heading h1 {
+      color: #fff023;
+      margin-bottom: 20px;
+      font-weight: 1000;
+    }
+
+    .sub-heading {
+      display: grid;
+      /* grid-template-columns: repeat(4, 1fr); */
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .detail-box {
+      position: relative;
+      cursor: pointer;
+
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+      min-height: 150px;
+      width: 100%;
+      box-sizing: border-box;
+      /* height: 150px;
+      width: 220px; */
+      font-weight:900;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color:#29292c;
+      overflow: hidden;
+    }  
+     
+    .sub-heading .detail-box {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+    }
+
+    /*Default light blue corners */
+    .sub-heading .detail-box::before,
+    .sub-heading .detail-box::after {
+    content: "";
+    position: absolute;
+    border-radius: 10px;
+    width: 70px;
+    height: 35px;
+    background: lightblue;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    }
+
+    /* Top-right corner */
+     .sub-heading .detail-box::before {
+      top: 0;
+      right: 0;
+      border-top-right-radius: 15px;
+    } 
+
+    /* Bottom-left corner */
+    .sub-heading .detail-box::after {
+      bottom: 0;
+      left: 0;
+      border-bottom-left-radius: 15px;
+    }
+
+    /* Hover effect: full background becomes light blue */
+    .sub-heading .detail-box.clicked {
+      background-color: lightblue;
+    } 
+
+    .sub-heading .detail-box.clicked * {
+      color: black !important;
+    }
+
+    strong {
+      margin-bottom: 5px;
+    }
+
+    .detail-box:hover{
+       transform: translateY(-5px); /* slight lift */
+       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+       background-color: lightblue;  
+    }  
+    
+    .icon {
+    font-size: 20px;
+    /* color: #254D70; */
+    margin-bottom: 10px;
+    }
+
+    .icon-heading{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+  /* button css */
+
+  .button-row {
+    display: flex;
+    justify-content: center; /* center row */
+    gap: 40px; /* equal spacing between buttons */
+    margin-top: 40px;
+  }
+
+    .button {
+    background-color: #0b7a5b;
+    border-radius: 10px;
+    color: white;
+    height: 60px;
+    width: 250px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* space between icon and text */
+    cursor: pointer;
+    }
+
+    .button-row button i {
+     margin-right:8px;
+    }
+
+    .button:hover {
+      background-color: rgb(180, 229, 180);
+      color: #fff; /* ensure text/icon remains visible */
+      }
+
+    a {
+    text-decoration: none;
+    }
+
+    .detail-box strong {
+     color: #fff023;
+    } 
+
+    .detail-box i {
+     color: #fff023; 
+    }
+
+    .detail-box span{
+      color: white;
+    }
+
+    /* media query */
+    @media (max-width: 600px){
+      .button-row{
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .button{
+      width: 80%;
+      margin-bottom: 15px;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <!-- Project Details -->
+  <div class="project-container">
+  <div class="heading">
+    <h1>Project Details.</h1>
+  </div>
+
+  <div class="sub-heading">
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-lock"></i>
+        <strong>Project Code:</strong>
+      </div>
+      <span>ABC123</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-diagram-project"></i>
+        <strong>Project Type:</strong>
+      </div>
+      <span>Internal</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-calendar-check"></i>
+        <strong>Project Approval Date:</strong>
+      </div>
+      <span>2025-01-15</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-calendar-check"></i>
+        <strong>Project NDA Date:</strong>
+      </div>
+      <span>2025-01-20</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-calendar-plus"></i>
+        <strong>Center Visit Date:</strong>
+      </div>
+      <span>2025-05-05</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-calendar-plus"></i>
+        <strong>SLA Data:</strong>
+      </div>
+      <span>SLA 2025-A</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-download"></i>
+        <strong>Software Installation Date and status:</strong>
+      </div>
+      <span>2025-02-10 – Completed</span>
+    </div>
+
+    <div class="detail-box">
+      <div class="icon-heading">
+        <i class="fa-solid fa-microphone-lines"></i>
+        <strong>Go-Live Date/Status:</strong>
+      </div>
+      <span>2025-02-01</span>
+    </div>
+  </div>
+
+  <!-- download button -->
+  <div class="button-row">
+  
+  <input type="file" id="openFileUpload" style="display: none;" />
+  <button class="button" onclick="UploadFile()"><i class="fa-solid fa-upload"></i> Upload Paper of NDA</button>
+
+  <input type="file" id="openFileUpload" style="display: none;" />
+  <button class="button" onclick="UploadFile()"><i class="fa-solid fa-upload"></i> Upload SLA</button>
+  
+  <input type="file" id="openFileUpload" style="display: none;" />
+  <button class="button" onclick="UploadFile()"><i class="fa-solid fa-upload"></i></i> Upload Invoice</button>
+</div>
+
+</div>
+</div>
+<!-- <script src="projectScript.js"></script> -->
+<script>
+function openFileDialog() {
+  const fileInput = document.getElementById('fileUpload');
+  fileInput.click();  // Open file dialog
+
+  fileInput.onchange = () => {
+    const file = fileInput.files[0];
+    if (file) {
+      console.log('Selected file:', file.name);
+      alert('Selected file: ' + file.name);
+      // Aap yahan file upload kar sakte ho, ya process kar sakte ho
+    }
+  };
+}
+</script>
+
+</body>
+</html>
+
