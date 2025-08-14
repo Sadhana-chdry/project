@@ -96,6 +96,8 @@
                              <i class="fa-solid fa-calendar-check"></i>
                             Project Approval Date
                            </h3>
+                           <!-- added the calendar -->
+                          <input type="date" id="myDate" name="event-date"/>
                         </div>
                         <input type="datetime-local" id="approval-datetime" class="datetime-input" style="display:none;" onchange="showDate(this, 'display-approval-date')">
                         <div id="display-approval-date" class="display-date"></div>
@@ -108,6 +110,7 @@
                             <i class="fa-solid fa-calendar-check"></i>
                           Project NDA Date
                         </h3>
+                         <input type="date" id="myDate" name="event-date"/>
                       </div>
                     <input type="datetime-local" id="nda-datetime" class="datetime-input" style="display:none;" onchange="showDate(this, 'display-nda-date')">
                     <div id="display-nda-date" class="display-date"></div>
@@ -120,6 +123,7 @@
                             <i class="fa-solid fa-calendar-plus"></i>
                             Center Visit Date
                             </h3>
+                             <input type="date" id="myDate" name="event-date"/>
                             </div>
                     <input type="date" id="center-visit-date" style="display:none;" onchange="showDate(this, 'display-center-visit')">
                     <div id="display-center-visit" class="display-date"></div>
@@ -141,6 +145,7 @@
                             <i class="fa-solid fa-calendar-plus"></i>
                             Software Installation Date and status
                             </h3>
+                            <input type="date" id="myDate" name="event-date"/>
                         </div>
                         <input type="date" id="Software-install-date" class="datetime-input" style="display:none;" onchange="showDate(this, 'display-Software-install')">
                         <div id="display-Software-install" class="display-date"></div>
@@ -153,6 +158,7 @@
                           <i class="fa-solid fa-calendar-plus"></i>
                          Go-Live Date/Status
                         </h3>
+                         <input type="date" id="myDate" name="event-date"/>
                         </div>
                         <input type="date" id="go-live-date" class="datetime-input" style="display:none;" onchange="showDate(this, 'display-go-live')">
                         <div id="display-go-live" class="display-date"></div>
@@ -186,39 +192,7 @@
         <!-- ========== Right Sidebar Content End Here ======== -->
 </div>
 
-<!-- script to display date and time -->
-<script>
-  // Toggle the datetime-local input visibility and focus
-  function toggleDatePicker(id) {
-    const input = document.getElementById(id);
-    if (!input) return;
-    if (input.style.display === 'none' || input.style.display === '') {
-      input.style.display = 'inline-block';
-      input.focus();
-    } else {
-      input.style.display = 'none';
-    }
-  }
-
-//    Show the selected date and time in the corresponding display element
-  function showDate(input, displayId) {
-    const dateTime = input.value;
-    if (!dateTime) return;
-
-    const display = document.getElementById(displayId);
-    if (!display) return;
-
-    const dt = new Date(dateTime);
-    // Format: YYYY-MM-DD HH:MM
-    const formattedDate = dt.toISOString().slice(0, 10);
-    const formattedTime = dt.toTimeString().slice(0, 5);
-
-    display.textContent = `${formattedDate} ${formattedTime}`;
-    input.style.display = 'none';
-  }
-</script>
-
-<!-- code for pdf upload -->
+  <!-- code for pdf upload  -->
 <script>
   function handlePDFUpload(input, label) {
     const file = input.files[0];
